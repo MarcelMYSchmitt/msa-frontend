@@ -1,4 +1,4 @@
-# Tour Monitoring Frontend
+# MSA Frontend
 
 Make sure to run `npm install` first !
 

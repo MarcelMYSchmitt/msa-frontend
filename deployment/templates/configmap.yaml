@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.Name }}-configmap
+  labels:
+    app: {{ .Chart.Name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  MSA_ENVIRONMENT: {{ .Values.Environment }}
+  MSA_RELEASE_NAME: {{ .Values.ReleaseName }}
+  MSA_ENDPOINT: {{ .Values.MsaEndpoint }}

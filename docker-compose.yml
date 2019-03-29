@@ -1,0 +1,13 @@
+version: '2'
+services:
+  msa-frontend-local:
+    container_name: msa-frontend-local
+    build:
+      context: .
+      dockerfile: docker/local/Dockerfile
+    command: npm start
+    volumes:
+      - .:/app/
+      - /app/node_modules
+    ports:
+      - "4200:4200"

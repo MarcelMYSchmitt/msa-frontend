@@ -1,0 +1,19 @@
+<h1>Output</h1>
+<p>
+  Values are coming from the simulator in msa project. 
+  <br/>
+  Therefore the simulator has to run to create and send messages with ids from 1-10.
+  <br/>
+  Otherwise you can go into api.service.ts and set the id you're polling for to 100 (it's the id we use for our watchdog). 
+</p>
+
+<ng-container *ngIf="testData; then testDataAvailable; else noTestDataAvailable">
+</ng-container>
+
+<ng-template #testDataAvailable>
+  <div><span>TestData Id: </span>{{testData.id}}</div>
+  <div><span>TestData Value: </span>{{testData.value}}</div>
+</ng-template>
+<ng-template #noTestDataAvailable>
+  <p> No data available.</p>
+</ng-template>

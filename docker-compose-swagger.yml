@@ -1,0 +1,14 @@
+# compose 2 is enough for this file
+version: '2'
+
+services:
+  swagger-generate:
+    image: mrmyiagi/swagger-codegen-cli
+    volumes:
+      - ./src/app/modules/bff-proxy:/bff-proxy
+    command: java -jar /swagger-api/swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -c /bff-proxy/config.json -i http://backendforfrontend:80/swagger/v1/swagger.json -l typescript-angular -o /bff-proxy
+
+networks:
+  default:
+    external:
+      name: local_development_network

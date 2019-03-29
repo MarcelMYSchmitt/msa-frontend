@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.Name }}-ingress
+  labels:
+    app: {{ .Chart.Name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  tls:
+  - hosts:
+    - msa.{{ .Values.Environment }}.azure.company.net
+  rules:
+  - host: msa.{{ .Values.Environment }}.azure.company.net
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.Name }}
+          servicePort: 80

@@ -1,0 +1,24 @@
+Environment: dev
+Name: frontend
+revisionHistoryLimit: 0
+
+image:
+  registry: mswedevmsaacr.azurecr.io
+  name: frontend
+  version: latest
+  imagePullPolicy: Always
+
+# frontend deployment
+deployment:
+  replicas: 1
+  resources:
+    requests:
+      cpu: 1
+      memory: 1Gi
+    limits:
+      cpu: 1
+      memory: 1Gi
+
+# configmap
+ReleaseName: replace_via_pipeline
+MsaEndpoint: replace_via_pipeline

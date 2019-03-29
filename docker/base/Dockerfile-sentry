@@ -1,0 +1,7 @@
+FROM node:8.11.1 AS builder
+
+# --------------------------------------
+# Install gulp and gulp-sentry-release
+# --------------------------------------
+RUN npm install gulp -g
+RUN npm install gulp gulp-sentry-release
